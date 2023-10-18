@@ -1,0 +1,45 @@
+Cretae and Alter table
+===============
+Create table iris_tab_managed(length float, width float, length1 float, width1 float, typeof string)
+row format delimited
+fields terminated by ‘,’
+
+Create external table iris_tab_ext(ernallength float, width float, length1 float, width1 float, typeof string)
+row format delimited
+fields terminated by ‘,’
+
+ALTER table iris_tab_managed rename to iris_managed;
+
+Load data in table
+==================
+load data local inpath ‘/home/aman/Downloads/iris.csv’ into table iris;
+
+
+Query Table
+
+select * from iris_managed;
+
+Create partitioned tables
+=====================
+
+set hive.exec.dynamic.partition=True;
+set hive.exec.dynamic.partition.mode=nonstrict;
+
+Create table iris_partitioned(length float, width float, length1 float, width1 float)
+partitioned by (typeof string)
+row format delimited
+fields terminated by ‘,’
+
+
+
+THEORY : 
+
+Hive is a key component in big data analytics, offering a SQL-like interface for querying and analyzing large datasets stored in Hadoop Distributed File System (HDFS). 
+
+1. **Data Warehousing**: Hive serves as a data warehousing solution, allowing users to structure and organize data in tables, making it easier to analyze and retrieve information from massive datasets.
+
+2. **SQL Queries**: It supports SQL-like queries through HiveQL, which makes it accessible to users familiar with traditional relational databases, enabling them to harness the power of big data without extensive programming.
+
+3. **Scalability**: Hive is highly scalable and can handle vast amounts of data, making it an essential tool in the world of big data analytics for processing and managing large datasets efficiently.
+
+4. **Integration**: Hive seamlessly integrates with other Hadoop ecosystem components, such as HBase, Pig, and Spark, providing a comprehensive framework for processing and gaining insights from diverse big data sources.
